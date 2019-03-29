@@ -1,0 +1,24 @@
+services:
+
+    my_storage:
+        class: MyProject\Storage\StorageInterface
+        factory: MyProject\Storage\StorageFactory:create
+        arguments:
+            - "@my_project.storage.registry"
+
+    my_storage.storage.registry:
+        class: MyProject\Storage\StorageRegistry
+
+    my_storage.driver.json:
+        class: MyProject\Storage\JsonStorage
+        arguments:
+            - "%kernel.root%"
+        tags:
+            - { name: "my_project.storage.driver" }
+    
+    my_storage.driver.redis:
+        class: MyProject\Storage\RedisStorage
+        arguments:
+            - "@redis"
+        tags:
+            - { name: "my_project.storage.driver" }

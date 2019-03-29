@@ -1,0 +1,7 @@
+services:
+    
+    my_storage:
+        class: MyProject\Storage\StorageInterface
+        factory: MyProject\Storage\StorageFactory:create
+        arguments:
+            - "@service_container"

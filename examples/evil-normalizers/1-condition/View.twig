@@ -1,0 +1,17 @@
+<table>
+
+    {% for (row in data) %}
+        <tr>
+            {% if data.type == 'a' %}
+                <td><span class="icon icon-alpha"></span></td>
+                <td>{{ data.name }}</td>
+                <td>{{ route('alpha.edit', data.id) }}</td>
+            {% elseif data.type == 'b' %}
+                <td><span class="icon icon-bravo"></span></td>
+                <td>{{ data.name }}</td>
+                <td>{{ route('bravo.edit', data.id, data.subid) }}</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+
+</table>

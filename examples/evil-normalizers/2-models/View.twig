@@ -1,0 +1,11 @@
+<table>
+
+    {% for (row in data) %}
+        <tr>
+            <td><span class="icon {{ data.icon }}"></span></td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.route }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
